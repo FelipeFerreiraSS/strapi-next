@@ -1,16 +1,21 @@
 import styles from '../styles/Home.module.css'
+import MarkdownIt from "markdown-it"
 
 export default function Home(props) {
   console.log(props.post[0].Imagem.name)
 
+  //const md = new MarkdownIt()
+  //const htmlTexto = md.render(props.post[0].Texto)
+
   return (
     <div className={styles.container}>
+      <h1>{props.post.Titulo}</h1>
       {props.post.map((item) => (
         <div key={item.id}>
           <h1 className={styles.titulo}>{item.Titulo} titulo</h1>
           <span>{item.Data}</span>
           <img src={item.Imagem.name} alt={item.Titulo}/>
-          <section>{item.Texto}</section>
+          <section>{htmlTexto}</section>
         </div>
       ))}
     </div>
